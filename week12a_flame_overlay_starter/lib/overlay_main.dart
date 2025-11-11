@@ -4,24 +4,19 @@ Widget mainOverlay(BuildContext context, game) {
   return Align(
     alignment: Alignment.topCenter,
     child: Container(
-      color: Color.fromARGB(48, 245, 154, 50),  // Semi-transparent orange
-      width: double.infinity,  // Full width
+      color: Color.fromARGB(48, 245, 154, 50), // Semi-transparent orange
+      width: double.infinity, // Full width
       height: 50,
       margin: EdgeInsets.all(20),
       child: Row(
         children: [
           Expanded(
-            child: Text(
-              "Score: 0",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 30,
-              ),
-            ),
+            child: Text("Score: 0", style: TextStyle(color: Colors.white, fontSize: 30)),
           ),
           IconButton(
             onPressed: () {
-              // TODO: Pause
+              game.paused = true;
+              game.overlays.add('pause');
             },
             icon: Icon(Icons.pause),
           ),

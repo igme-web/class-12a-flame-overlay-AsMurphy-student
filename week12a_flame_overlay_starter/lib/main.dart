@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'game.dart';
 import 'overlay_title.dart';
 import 'overlay_main.dart';
+import 'overlay_pause.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,6 +30,9 @@ class MainApp extends StatelessWidget {
             },
             'main': (context, game) {
               return mainOverlay(context, game);
+            },
+            'pause': (context, game) {
+              return pauseOverlay(context, game);
             },
           },
           initialActiveOverlays: const ['title'],
