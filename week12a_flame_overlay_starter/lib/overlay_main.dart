@@ -28,7 +28,8 @@ Widget mainOverlay(BuildContext context, game) {
           ),
           IconButton(
             onPressed: () {
-              // TODO: Info
+              game.paused = true;
+              game.overlays.add('info');
             },
             icon: Icon(Icons.info),
           ),

@@ -6,6 +6,7 @@ import 'game.dart';
 import 'overlay_title.dart';
 import 'overlay_main.dart';
 import 'overlay_pause.dart';
+import 'overlay_info.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,6 +34,9 @@ class MainApp extends StatelessWidget {
             },
             'pause': (context, game) {
               return pauseOverlay(context, game);
+            },
+            'info': (context, game) {
+              return InfoOverlay(game: game as OverlayTutorial); // Cast required!
             },
           },
           initialActiveOverlays: const ['title'],
