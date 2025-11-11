@@ -29,7 +29,7 @@ class OverlayTitle extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // TODO: Settings
+                game.overlays.add('settings');
               },
               child: const Text("Settings"),
             ),

@@ -24,7 +24,7 @@ Widget pauseOverlay(BuildContext context, game) {
           const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
-              // TODO: Settings (will add later)
+              game.overlays.add('settings');
             },
             child: const Text("Settings"),
           ),
