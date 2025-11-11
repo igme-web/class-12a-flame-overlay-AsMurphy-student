@@ -3,6 +3,7 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
 import 'game.dart';
+import 'overlay_title.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +21,13 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: GameWidget(
-          game: OverlayTutorial(context),
+          game: OverlayTutorial(context)..paused = true,
+          overlayBuilderMap: {
+            'title': (context, game) {
+              return OverlayTitle(game: game);
+            },
+          },
+          initialActiveOverlays: const ['title'],
         ),
       ),
     );
