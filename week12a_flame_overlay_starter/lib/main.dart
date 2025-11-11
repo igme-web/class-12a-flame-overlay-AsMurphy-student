@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'game.dart';
 import 'overlay_title.dart';
+import 'overlay_main.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +26,9 @@ class MainApp extends StatelessWidget {
           overlayBuilderMap: {
             'title': (context, game) {
               return OverlayTitle(game: game);
+            },
+            'main': (context, game) {
+              return mainOverlay(context, game);
             },
           },
           initialActiveOverlays: const ['title'],

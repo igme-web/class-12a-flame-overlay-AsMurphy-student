@@ -22,6 +22,7 @@ class OverlayTitle extends StatelessWidget {
               onPressed: () {
                 game.paused = false;
                 game.overlays.remove('title');
+                game.overlays.add('main'); // Show HUD
               },
               child: const Text("Start Game"),
             ),
