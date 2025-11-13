@@ -41,4 +41,14 @@ class GameProvider extends ChangeNotifier {
     _lastScore = value;
     notifyListeners();
   }
+
+  // Play background music
+  Future<void> playBgm(String url) async {
+    await musicPlayer.play(AssetSource(url));
+  }
+
+  // Play sound effect
+  Future<void> playSfx(String url) async {
+    await sfxPlayer.play(AssetSource(url));
+  }
 }
