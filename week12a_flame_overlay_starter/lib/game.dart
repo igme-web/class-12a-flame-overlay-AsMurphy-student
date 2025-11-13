@@ -43,7 +43,7 @@ class OverlayTutorial extends FlameGame with TapCallbacks {
       add(Asteroid());
     }
   }
-  
+
   @override
   void onDispose() {
     gameProvider.dispose();
@@ -53,5 +53,11 @@ class OverlayTutorial extends FlameGame with TapCallbacks {
   @override
   void onTapUp(TapUpEvent event) {
     super.onTapUp(event);
+
+    // Increment score
+    gameProvider.incrementScore(1);
+
+    // Play sound effect
+    gameProvider.playSfx("audio/shot.wav");
   }
 }
