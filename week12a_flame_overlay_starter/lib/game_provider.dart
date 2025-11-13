@@ -29,11 +29,13 @@ class GameProvider extends ChangeNotifier {
   // Setters with notifyListeners
   void setMusicVolume(double value) {
     _musicVolume = value;
+    musicPlayer.setVolume(_musicVolume);
     notifyListeners();
   }
 
   void setSfxVolume(double value) {
     _sfxVolume = value;
+    sfxPlayer.setVolume(_sfxVolume);
     notifyListeners();
   }
 
