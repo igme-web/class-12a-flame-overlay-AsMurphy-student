@@ -51,4 +51,11 @@ class GameProvider extends ChangeNotifier {
   Future<void> playSfx(String url) async {
     await sfxPlayer.play(AssetSource(url));
   }
+
+  @override
+  void dispose() {
+    musicPlayer.dispose();
+    sfxPlayer.dispose();
+    super.dispose();
+  }
 }
