@@ -14,6 +14,11 @@ class GameProvider extends ChangeNotifier {
   AudioPlayer musicPlayer = AudioPlayer();
   AudioPlayer sfxPlayer = AudioPlayer();
 
+  // Audio context configuration - allows music to mix with SFX
+  final AudioContext audioContext = AudioContextConfig(
+    focus: AudioContextConfigFocus.mixWithOthers,
+  ).build();
+
   // Getters to access private variables
   double get musicVolume => _musicVolume;
   double get sfxVolume => _sfxVolume;
@@ -44,6 +49,12 @@ class GameProvider extends ChangeNotifier {
 
   // Play background music
   Future<void> playBgm(String url) async {
+    // Set audio context to allow mixing
+    musicPlayer.setAudioContext(audioContext);
+
+    // Set to loop when finished
+    musicPlayer.setReleaseMode(ReleaseMode.loop);
+
     await musicPlayer.play(AssetSource(url));
   }
 
