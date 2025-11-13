@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:audioplayers/audioplayers.dart';
+
 class GameProvider extends ChangeNotifier {
   // Private variables for settings
   double _musicVolume = 1.0;
@@ -7,6 +9,10 @@ class GameProvider extends ChangeNotifier {
   int _score = 0;
   int _lastScore = 0;
   bool _inGame = false;
+
+  // Audio players
+  AudioPlayer musicPlayer = AudioPlayer();
+  AudioPlayer sfxPlayer = AudioPlayer();
 
   // Getters to access private variables
   double get musicVolume => _musicVolume;
