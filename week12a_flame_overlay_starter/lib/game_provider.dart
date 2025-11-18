@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flame/game.dart';
 
 import 'package:audioplayers/audioplayers.dart';
 
@@ -9,6 +10,9 @@ class GameProvider extends ChangeNotifier {
   int _score = 0;
   int _lastScore = 0;
   bool _inGame = false;
+
+  // Game reference
+  FlameGame? _game;
 
   // Audio players
   AudioPlayer musicPlayer = AudioPlayer();
@@ -26,11 +30,18 @@ class GameProvider extends ChangeNotifier {
   int get lastScore => _lastScore;
   bool get inGame => _inGame;
 
+  FlameGame? get game => _game;
+
   // Setters with notifyListeners
   void setMusicVolume(double value) {
     _musicVolume = value;
     musicPlayer.setVolume(_musicVolume);
     notifyListeners();
+  }
+
+  set game(FlameGame? value) {
+    _game = value;
+    // NO notifyListeners() here!
   }
 
   void setSfxVolume(double value) {
@@ -67,6 +78,7 @@ class GameProvider extends ChangeNotifier {
 
   @override
   void dispose() {
+    print("Provider disposed");
     musicPlayer.dispose();
     sfxPlayer.dispose();
     super.dispose();

@@ -75,12 +75,8 @@ class OverlayTutorial extends FlameGame
 
   @override
   void onDispose() {
-    gameProvider.dispose();
-    super.onDispose();
-    // Add This to the onDispose (inside)
+    print("Game disposed");
     WidgetsBinding.instance.removeObserver(this);
-
-    //existing code, and the super.onDispose() called last!
     gameProvider.dispose();
     super.onDispose();
   }
