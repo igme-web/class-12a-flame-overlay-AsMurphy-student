@@ -57,18 +57,18 @@ class OverlayTutorial extends FlameGame
 
     switch (state) {
       case AppLifecycleState.resumed:
-        // TODO: Print "Resumed"
-        // TODO: Resume the game engine
-        // TODO: Resume the music player
+        print("resumed");
+        resumeEngine();
+        gameProvider.musicPlayer.resume();
         break;
 
       case AppLifecycleState.paused:
       case AppLifecycleState.detached:
       case AppLifecycleState.inactive:
       case AppLifecycleState.hidden:
-        // TODO: Print "Paused"
-        // TODO: Pause the game engine
-        // TODO: Pause the music player
+        print("paused");
+        pauseEngine();
+        gameProvider.musicPlayer.pause();
         break;
     }
   }
